@@ -47,10 +47,7 @@ function addBook(book) {
   // TODO: Implement this function
   const books = loadBooks();
   // find max id
-  let maxId = 0;
-  books.forEach((book) => {
-    if (typeof book.id === 'number' && book.id > maxId) maxId = book.id;
-  });
+  const maxId = books.reduce((max, book) => Math.max(max, book.id), 0)
   const newBook = {
     id: maxId + 1,
     title: book.title,
